@@ -25,15 +25,14 @@ public class CarController {
     }
 
     @GetMapping(value = "/cars")
-    public String getCars (@RequestParam("id") int id, ModelMap model) {
-        model.addAttribute("cr", carSerivice.getAlllist());
-        model.addAttribute("ls", carSerivice.getBycount(id));
+    public String getCars (@RequestParam(value = "count", defaultValue = "5") int count, ModelMap model) {
+            model.addAttribute("ls", carSerivice.getBycount(count));
         return "Car";
     }
 
-//        @GetMapping(value = "/cars{id}")
-//        public String show(@RequestParam("id") int id, Model model){
-//            model.addAttribute("ls", carSerivice.getBycount(id));
+//        @GetMapping(value = "/cars")
+//        public String show(ModelMap model){
+//            model.addAttribute("lst", carSerivice.getAlllist());
 //            return "Car";
 //        }
     }

@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class CarSeriviceImpl implements CarService{
     public static int count;
-    public List<Car> list = new ArrayList<>();
+    public static List<Car> list = new ArrayList<>();
     {
     list.add(new Car("BMW", "12", ++count));
     list.add(new Car("Audi", "13", ++count));
@@ -32,7 +32,7 @@ public class CarSeriviceImpl implements CarService{
             return list2;
         }
         else {
-            return null;
+            return list;
         }
     }
 }

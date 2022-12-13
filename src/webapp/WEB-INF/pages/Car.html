@@ -3,16 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cars</title>
+    <style>table th, table td {padding: 7px;}</style>
 </head>
 <body>
-<div>
-    <form action="index.html" method="get">
-        <input type="number" name="id"/>
-<!--        <th:block th:each="carsList2 : ${ls}">-->
-<!--            <h1 th:text="${carsList2.getModel()}"></h1>-->
-<!--        </th:block>-->
-    </form>
-</div>
+<h1>Cars tables</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope = "col"> model</th>
+        <th scope = "col">series</th>
+        <th scope = "col">Id number</th>
+    </tr>
+    <thead>
+    <tbody>
+
+    <tr th:each="carList : ${ls}">
+        <td th:utext="${carList.getModel()}">model</td>
+        <td th:utext="${carList.getSeries()}">series</td>
+        <td th:utext="${carList.getId()}">id</td>
+    </tr>
+    <tbody>
+
+</table>
 </body>
 </html>
