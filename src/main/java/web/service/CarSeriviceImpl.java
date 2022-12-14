@@ -5,6 +5,8 @@ import web.Model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class CarSeriviceImpl implements CarService{
     public static int count;
@@ -23,16 +25,17 @@ public class CarSeriviceImpl implements CarService{
     }
 
     @Override
-    public List<Car> getBycount(int id) {
-        List<Car> list2 = new ArrayList<>();
-        if(id <= 5) {
-            for (int e = 0; e < id; e++) {
-                list2.add(list.get(e));
-            }
-            return list2;
-        }
-        else {
-            return list;
-        }
+    public List<Car> getByID(int id) {
+//        List<Car> list2 = new ArrayList<>();
+//        if(id <= 5) {
+//            for (int e = 0; e < id; e++) {
+//                list2.add(list.get(e));
+//            }
+//            return list2;
+//        }
+//        else {
+//            return list;
+//        }
+        return list.stream().limit(id).collect(Collectors.toList());
     }
 }
